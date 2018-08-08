@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>socket</title>
+</head>
+<script src = "/socket.io/socket.io.js"></script>
+<script >
+	var socket = io();
+	socket.on("tester",function(data){document.write(data.des)});//received a tester request from server and implemented it
+
+	socket.emit("testserver",{d:"this is client message"})
+
+	//broadcast
+	socket.on("broadcast",function(data){
+		document.write(data.desc);
+	});
+	//namespace
+	// var socketnsp = io('/hello');
+	// socketnsp.on('hi',function(data){
+	// 	document.write(data.descr);
+	// })
+</script>
+<body>
+	<h1>hello world</h1>
+</body>
+</html>
